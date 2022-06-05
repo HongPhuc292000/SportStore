@@ -1,2 +1,0 @@
-# SportStore
-This is GraduationThesis
