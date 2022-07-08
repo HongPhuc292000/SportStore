@@ -1,20 +1,17 @@
 import React from 'react';
 import Header from 'app/components/Header';
-import Sidebar from 'app/components/Sidebar';
+import { Outlet } from 'react-router-dom';
+import Footer from 'app/components/Footer';
+import SocialsLink from 'app/components/SocialsLink';
 
-interface Props {
-  children: React.ReactElement;
-}
-
-function DefaultLayout({ children }: Props) {
+function DefaultLayout() {
   return (
-    <div>
+    <>
       <Header />
-      <div className="container">
-        <Sidebar />
-        <div className="content">{children}</div>
-      </div>
-    </div>
+      <Outlet />
+      <Footer />
+      <SocialsLink />
+    </>
   );
 }
 

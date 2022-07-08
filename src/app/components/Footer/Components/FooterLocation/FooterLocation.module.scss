@@ -1,0 +1,62 @@
+@import '../../../GlobalStyles/GlobalStyles.scss';
+
+.footerLocationWrap{
+    --icon-size: 3.2rem;
+    padding: 4rem 0;
+}
+
+.locationTitle{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    .icon{
+        color: $text-light;
+        background-color: $secondary-color;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        line-height: var(--icon-size);
+        text-align: center;
+    }
+    .title{
+        font-weight: bolder;
+        font-size: 1.4rem;
+        background-color: $third-color;
+        flex: 1;
+        height: var(--icon-size);
+        line-height: var(--icon-size);
+        padding-left: 1.6rem;
+    }
+}
+
+.locationItemDes{
+    display: flex;
+    color: $text-darker;
+    &:not(:last-child){
+        margin-bottom: 0.8rem;
+    }
+    
+    &.primary{
+        color: $secondary-color;
+        .des{
+            color: $secondary-color;
+        }
+    }
+
+    &.darker{
+        .des{
+            font-weight: bolder;
+        }
+    }
+
+    .icon{
+        font-size: 2rem;
+        width: var(--icon-size);
+    }
+
+    .des{
+        font-size: 1.2rem;
+        padding-left: 1.6rem;
+        font-weight: lighter;
+    }
+}
+

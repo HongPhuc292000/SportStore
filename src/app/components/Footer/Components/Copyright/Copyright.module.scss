@@ -1,0 +1,15 @@
+@import '../../../GlobalStyles/GlobalStyles.scss';
+
+.copyright{
+    width: 100%;
+    background-color: $primary-color;
+    padding: 2.8rem 0;
+}
+
+.copyrightDes{
+    color: $text-light;
+    font-size: 1.2rem;
+    &:not(:last-child){
+        margin-bottom: 0.4rem;
+    }
+}

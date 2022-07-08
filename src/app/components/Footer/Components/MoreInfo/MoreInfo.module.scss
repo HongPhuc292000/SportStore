@@ -1,0 +1,29 @@
+@import '../../../GlobalStyles/GlobalStyles.scss';
+
+.moreInfo{
+    background-color: #FBFBFB;
+}
+
+.bottomItemWrap{
+    padding-top: 2.8rem;
+    border-top: 2px dotted $text-darker;
+    .moreInfoDesWrap{
+        margin-top: 0.8rem;
+    }
+}
+
+.footerDesWrap{
+    padding-bottom: 2.8rem;
+    .topDesWrap{
+        align-items: center;
+        .topDesIcon{
+            margin-right: 2rem;
+            font-size: 4rem;
+            color: $primary-color;
+        }
+        .topDesContent{
+            font-size: 1.4rem;
+            font-weight: lighter;
+        }
+    }
+}

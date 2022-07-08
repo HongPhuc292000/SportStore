@@ -1,0 +1,43 @@
+@import '../GlobalStyles/GlobalStyles.scss';
+
+.headerNav{
+    --header-height: 6rem;
+    --header-pd-top: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--header-pd-top);
+    height: var(--header-height);
+}
+
+.headerLogo{
+    height: calc(var(--header-height) - var(--header-pd-top));
+    width: auto;
+}
+
+.headerList{
+    display: flex;
+    min-width: 10rem;
+    &:last-child{
+        justify-content: flex-end;
+    }
+}
+
+.headerItem{
+    display: inline-block;
+    &:not(:last-child){
+        margin-right: 0.8rem;
+    }
+}
+
+.headerIcon{
+    height: auto;
+    width: 2.4rem;
+    color: $text-dark;
+    &:not(:last-child){
+        margin-right: 0.4rem;
+    }
+    &:hover{
+        color: $primary-color;
+    }
+}

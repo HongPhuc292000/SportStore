@@ -1,0 +1,26 @@
+@import '../GlobalStyles/GlobalStyles.scss';
+
+.mainNav{
+    --mainnav-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--mainnav-size);
+}
+
+.mainNavLink{
+    color: $text-dark;
+    font-weight: light;
+    display: inline-block;
+    height: var(--mainnav-size);;
+    line-height: var(--mainnav-size);
+    &:not(:last-child){
+        margin-right: 3.2rem;
+    }
+    &:hover{
+        color: $primary-color;
+    }
+    &.active{
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,31 @@
+@import '../GlobalStyles/Variables.scss';
+
+.socialContainer{
+    position: fixed;
+    right: 0.8rem;
+    top: 30%;
+    .socialItem{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.4rem;
+        padding: 0.8rem;
+        border-radius: 50%;
+        color: $text-light;
+        margin-bottom: 0.8rem;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        &:first-child{
+            background-color: #4267b2;
+        }
+
+        &:nth-child(2){
+            background-color: red;
+        }
+
+        &:last-child{
+            background-color: red;
+        }
+    }
+}

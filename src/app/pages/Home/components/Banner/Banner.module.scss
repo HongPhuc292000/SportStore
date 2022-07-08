@@ -1,0 +1,23 @@
+.topBanner{
+    --banner-height: 30rem;
+    .bannerItem{
+        width: 100%;
+        height: var(--banner-height);
+        object-fit: cover;
+        border-radius: 0.4rem;
+    }
+}
+
+.bottomBannerItem{
+    .bottomBannerImg{
+        width: 100%;
+        height: 14rem;
+        object-fit: cover;
+        border-radius: 0.4rem;
+    }
+}
+
+
+
+
+

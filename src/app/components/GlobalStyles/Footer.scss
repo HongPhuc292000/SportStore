@@ -1,0 +1,28 @@
+@import './Variables.scss';
+
+.footer-title{
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: $text-dark;
+  text-transform: uppercase;
+  position: relative;
+  &.has-border::after{
+    content: '';
+    width: 30%;
+    border-bottom: 2px solid $primary-color;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+.footer-sub-des{
+    font-size: 1.2rem;
+    color: $text-dark;
+    display: block;
+    font-weight: light;
+}
+
+.footer-wrap{
+    padding: 2.8rem 0;
+}
