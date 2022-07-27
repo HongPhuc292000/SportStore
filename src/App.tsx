@@ -1,6 +1,6 @@
 import Router from 'app/routes';
-import React, { Fragment } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
