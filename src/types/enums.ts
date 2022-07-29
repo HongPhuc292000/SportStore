@@ -1,4 +1,4 @@
 export enum ProductStatusEnum {
-    ENABLE = "ENABLE",
-    DISABLE = "DISABLE"
+  OUTSTOCK = 'OUTSTOCK',
+  INSTOCK = 'INSTOCK',
 }

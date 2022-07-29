@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Slider from 'react-slick';
 
@@ -10,6 +10,9 @@ import prevIcon from 'assets/images/prev-icon.svg';
 import nextIcon from 'assets/images/next-icon.svg';
 import { Link } from 'react-router-dom';
 import Banner from './components/Banner';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { homeManagementAction } from './slice/index';
+import { selectHomeManagement } from './slice/selector';
 
 let settings = {
   infinite: true,
@@ -28,60 +31,15 @@ let settings = {
   ),
 };
 
-const productList = [
-  {
-    name: 'Giầy thể thao cao cấp',
-    image: productImg,
-    rating: 5,
-    code: 'TSXJSX',
-    defaultPrice: 660000,
-    salesPrice: 220000,
-    salesPercent: 7,
-    status: 'ENABLE',
-  },
-  {
-    name: 'Giầy thể thao cao cấp',
-    image: productImg,
-    rating: 5,
-    code: 'TSXJSX',
-    defaultPrice: 660000,
-    salesPrice: 220000,
-    salesPercent: 7,
-    status: 'ENABLE',
-  },
-  {
-    name: 'Giầy thể thao cao cấp',
-    image: productImg,
-    rating: 5,
-    code: 'TSXJSX',
-    defaultPrice: 660000,
-    salesPrice: 220000,
-    salesPercent: 7,
-    status: 'ENABLE',
-  },
-  {
-    name: 'Giầy thể thao cao cấp',
-    image: productImg,
-    rating: 5,
-    code: 'TSXJSX',
-    defaultPrice: 660000,
-    salesPrice: 220000,
-    salesPercent: 7,
-    status: 'ENABLE',
-  },
-  {
-    name: 'Giầy thể thao cao cấp',
-    image: productImg,
-    rating: 5,
-    code: 'TSXJSX',
-    defaultPrice: 660000,
-    salesPrice: 220000,
-    salesPercent: 7,
-    status: 'ENABLE',
-  },
-];
-
 function Home() {
+  const dispatch = useAppDispatch();
+
+  const { products } = useAppSelector(selectHomeManagement);
+
+  useEffect(() => {
+    dispatch(homeManagementAction.getProducts());
+  }, []);
+
   return (
     <div className={clsx(styleHome.home)}>
       <div className={clsx(styleHome.bannerWrap)}>
@@ -96,8 +54,8 @@ function Home() {
             </Link>
           </div>
           <Slider {...settings}>
-            {productList.map((item, index) => {
-              return <Product key={index} {...item} />;
+            {products?.data?.map((item, index) => {
+              return <Product key={index} data={item} />;
             })}
           </Slider>
         </div>
@@ -109,8 +67,8 @@ function Home() {
             </Link>
           </div>
           <Slider {...settings}>
-            {productList.map((item, index) => {
-              return <Product key={index} {...item} />;
+            {products?.data?.map((item, index) => {
+              return <Product key={index} data={item} />;
             })}
           </Slider>
         </div>
@@ -122,7 +80,7 @@ function Home() {
             </Link>
           </div>
           <Slider {...settings}>
-            {productList.map((item, index) => {
+            {products?.data?.map((item, index) => {
               return <Product key={index} {...item} />;
             })}
           </Slider>

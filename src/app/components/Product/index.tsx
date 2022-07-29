@@ -2,51 +2,37 @@ import { Icon } from '@iconify/react';
 import clsx from 'clsx';
 import React from 'react';
 import ReactStars from 'react-stars';
-import { ProductStatusEnum } from 'types';
+import { ProductI, ProductStatusEnum } from 'types';
 import { formatCurrency } from 'utils';
 import stylesProduct from './Product.module.scss';
 
 interface Props {
-  image: string;
-  name: string;
-  rating: number;
-  code: string;
-  defaultPrice: number;
-  salesPrice: number;
-  salesPercent: number;
-  status: string;
+  data?: ProductI;
 }
 
-function Product({
-  image,
-  name,
-  rating,
-  code,
-  defaultPrice,
-  salesPrice,
-  salesPercent,
-  status,
-}: Props) {
+function Product({ data }: Props) {
   const statusRender = React.useMemo(() => {
-    return status === ProductStatusEnum.ENABLE
+    return data?.status === ProductStatusEnum.INSTOCK
       ? { title: 'Còn hàng', icon: 'ic:round-done', enable: true }
       : { title: 'Liên hệ', icon: 'fluent:call-24-filled', enable: false };
-  }, [status]);
+  }, [data?.status]);
 
   return (
     <div className={clsx(stylesProduct.productItem)}>
-      <img className={clsx(stylesProduct.productImg)} src={image} alt="img" />
+      <img className={clsx(stylesProduct.productImg)} src={data?.imageUrl} alt="img" />
       <div>
         <div className={clsx(stylesProduct.ratingWrap, 'd-flex')}>
-          <ReactStars count={5} value={rating} edit={false} size={20} color2={'#FF9727'} />
-          <p>Mã: {code}</p>
+          <ReactStars count={5} value={data?.rating} edit={false} size={20} color2={'#FF9727'} />
+          <p>Mã: {data?.code}</p>
         </div>
-        <p className={clsx(stylesProduct.productName)}>{name}</p>
+        <p className={clsx(stylesProduct.productName)}>{data?.name}</p>
         <div className={clsx(stylesProduct.defaultPrice, 'd-flex')}>
-          <p>{formatCurrency(defaultPrice.toString())}đ</p>
-          <p>{`(Tiết kiệm: ${salesPercent}%)`}</p>
+          <p>{formatCurrency(data?.defaultPrice.toString())}đ</p>
+          <p>{`(Tiết kiệm: ${data?.salePercent}%)`}</p>
         </div>
-        <p className={clsx(stylesProduct.salePrice)}>{formatCurrency(salesPrice.toString())}đ</p>
+        <p className={clsx(stylesProduct.salePrice)}>
+          {formatCurrency(data?.salePrice.toString())}đ
+        </p>
         <div className={clsx(stylesProduct.statusWrap, 'd-flex')}>
           <div
             className={clsx(stylesProduct.statusItem, 'd-flex', {

@@ -1,11 +1,15 @@
+import { ProductStatusEnum } from './enums';
+
 export interface ProductI {
-  id: number;
-  image: any;
+  id: string;
+  imageUrl: string;
   name: string;
   rating: number;
   code: string;
   defaultPrice: number;
-  salesPrice: number;
-  salesPercent: number;
-  status: string;
+  salePrice: number;
+  salePercent: number;
+  status: ProductStatusEnum;
+  categoryId: string;
+  totalRating: number;
 }
